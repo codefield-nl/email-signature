@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "npx mjml -w src/input.mjml -o dist/output.html",
     "build:prod": "npx mjml src/input.mjml -o dist/output.html --config.minify",
-    "deploy": "npm run build && node -e 'require(\"gh-pages\").publish(\"dist\", err => {} );'"
+    "deploy": "node -e 'require(\"gh-pages\").publish(\"dist\", err => {} );'"
   },
   "author": "",
   "license": "ISC",
