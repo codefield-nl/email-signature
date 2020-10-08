@@ -114,6 +114,10 @@
                 $(`#to-copy .${el}`).attr('href',`${newVal}`);
                 break;
 
+              case 'avatar':
+                $(`#to-copy .${el}`).attr('src',`${newVal}`);
+                break;
+
               case 'name':
               case 'job':
               case 'address':
@@ -133,6 +137,13 @@
 <body>
 <div class="no-select">
   <div class="form">
+    <input type="text" placeholder="Avatar" value="assets/renzo.png" class="avatar" />
+    <select id="title" class="brand" name="title">
+      <option value="codefield" selected>codefield</option>
+      <option value="medfield">Medfield</option>
+      <option value="techfield">Techfield</option>
+    </select>
+    <hr>
     <input type="text" placeholder="Voornaam Achternaam" value="Voornaam Achternaam" class="name" />
     <input type="text" placeholder="Jobtitle" value="Job titel" class="job" />
     <input type="text" placeholder="Telefoonnummer" value="+31 6 12 34 56 78" class="phone" />
@@ -140,11 +151,6 @@
     <input type="text" placeholder="Adres" value="Straat 100, 1234 AB Amsterdam" class="address" />
     <input type="text" placeholder="Website" value="https://website.nl" class="site" />
     <hr>
-    <select id="title" class="brand" name="title">
-      <option value="codefield" selected>codefield</option>
-      <option value="medfield">Medfield</option>
-      <option value="techfield">Techfield</option>
-    </select>
     <input type="text" placeholder="Facebook" value="https://facebook.com" class="facebook" />
     <input type="text" placeholder="Twitter" value="https://twitter.com" class="twitter" />
     <input type="text" placeholder="Linkedin" value="https://linkedin.com" class="linkedin" />
@@ -165,8 +171,8 @@
                 <span style="margin-right: 50px; display: block;" class="sc-kgAjT cuzzPp">
                   <!-- <img src="https://codefield.nl/wp-content/uploads/2020/09/renzo-150x150.jpg" role="presentation"
                     style="max-width: 130px; background-color: #dfdfdf; border-radius: 100%;" class="sc-cHGsZl bHiaRe" width="130"> -->
-                  <img src="assets/renzo.jpg" role="presentation"
-                    style="max-width: 130px; background-color: #dfdfdf; border-radius: 100%;" class="sc-cHGsZl bHiaRe" width="130">
+                  <img class="avatar" src="assets/renzo.jpg" role="presentation"
+                    style="object-fit: cover; width: 130px; height: 130px; background-color: #dfdfdf; border-radius: 100%;" class="sc-cHGsZl bHiaRe" width="130">
                     <img src="assets/codefield.png" class="brand" role="presentation" style="max-width: 130px; object-fit: contain; max-height: 26px; display: inline-block; margin-top: 30px;" class="sc-cHGsZl bHiaRe" width="130">
                 </span></td>
               <td style="vertical-align: middle;">
@@ -179,30 +185,30 @@
                   <span class="address" style="line-height:1.4;">Straat 100, 1234 AB Amsterdam</span><br>
                   <a href="//website.nl" class="site" style="line-height:1.4; text-decoration: none; color: rgb(18, 4, 57);">website.nl</a>
                     <a class="facebook" href="https://facebook.com" color="#120439"
-                      style="display: inline-block; padding: 0px; float: right; margin-right: 5px; margin-top: -3px;"
+                      style="display: inline-block; padding: 0px; float: right; margin-right: 10px; margin-top: -7px;"
                       class="sc-hzDkRC kpsoyz">
                       <img
                         src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-512.png"
                         alt="facebook" color="#120439"
-                        style=" max-width: 135px; display: block;"
+                        style=" max-width: 135px; display: block; width: 30px; height: 30px;"
                         class="sc-bRBYWo ccSRck" height="24">
                     </a>
                     <a class="twitter" href="https://twitter.com" color="#120439"
-                      style="display: inline-block; padding: 0px; float: right; margin-right: 5px; margin-top: -3px;"
+                      style="display: inline-block; padding: 0px; float: right; margin-right: 10px; margin-top: -7px;"
                       class="sc-hzDkRC kpsoyz">
                       <img
                         src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-128.png"
                         alt="twitter" color="#120439"
-                        style=" max-width: 135px; display: block;"
+                        style=" max-width: 135px; display: block; width: 30px; height: 30px;"
                         class="sc-bRBYWo ccSRck" height="24">
                     </a>
                     <a class="linkedin" href="https://linkedin.nl" color="#120439"
-                    style="display: inline-block; padding: 0px; float: right; margin-right: 5px; margin-top: -3px;"
+                    style="display: inline-block; padding: 0px; float: right; margin-right: 10px; margin-top: -7px;"
                     class="sc-hzDkRC kpsoyz">
                     <img
                       src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-128.png"
                       alt="linkedin" color="#120439"
-                      style=" max-width: 135px; display: block;"
+                      style=" max-width: 135px; display: block; width: 30px; height: 30px;"
                       class="sc-bRBYWo ccSRck" height="24">
                   </a>
                 </p>
