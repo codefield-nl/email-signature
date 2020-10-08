@@ -4,14 +4,14 @@
   "description": "",
   "main": "src/input.mjml",
   "scripts": {
-    "watch": "npx mjml -w src/input.mjml -o dist/output.html",
-    "build:prod": "npx mjml src/input.mjml -o dist/output.html --config.minify",
-    "deploy": "node -e 'require(\"gh-pages\").publish(\"dist\", err => {} );'"
+    "start": "npm run watch",
+    "watch": "npx browser-sync start --server 'src' --files 'src'",
+    "deploy": "node -e 'require(\"gh-pages\").publish(\"src\", err => {} );'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gh-pages": "^3.1.0",
-    "mjml": "^4.7.1"
+    "browser-sync": "^2.26.12",
+    "gh-pages": "^3.1.0"
   }
 }

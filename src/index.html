@@ -4,8 +4,208 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST/browser-sync/browser-sync-client.js'><\/script>".replace("HOST", location.hostname + ':3000'));//]]>
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style style="display: none;">
+    .no-select {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      position: fixed;
+      left: calc(100% - 390px);
+      background-color: #dfdfdf;
+      top: 0;
+      height: 100vh;
+      width: 390px;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex: 0 0 50px;
+      width: 350px;
+      padding: 20px;
+    }
+    .form * {
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 4px;
+      padding: 7px 10px;
+    }
+    button {
+      cursor: pointer;
+      padding: 12px !important;
+    }
+
+    .update {
+      width: 60%;
+      background: #87a49e;
+    }
+    .copy {
+      background: #42d93d;
+    }
+
+  </style>
+  <script type="text/javascript">
+      function copyToClipboard(element) {
+        element.preventDefault;
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).html()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        document.getElementsByClassName('copy')[0].textContent = 'Gekopieerd!';
+      }
+      function update() {
+        // name
+        // job
+        // phone
+        // email
+        // address
+        // site
+
+      }
+  </script>
 </head>
+
 <body>
-  Hello World!
+<div class="no-select">
+  <div class="form">
+    <input type="text" value="Voornaam Achternaam" class="name" />
+    <input type="text" value="Developer" class="job" />
+    <input type="text" value="+31 6 12 34 56 78" class="phone" />
+    <input type="text" value="" class="email" />
+    <input type="text" value="" class="address" />
+    <input type="text" value="" class="site" />
+    <button onclick="update()" class="update">Update de velden</button>
+    <button onclick="copyToClipboard('#to-copy')" class="copy">Kopieer handtekening</button>
+  </div>
+</div>
+
+<table style="font-size: medium; font-family: Arial; margin: 40px;" id="to-copy" class="sc-gPEVay eQYmiW" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+        <table style="font-size: medium; font-family: Arial;" class="sc-gPEVay eQYmiW" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="vertical-align: top;" width="150">
+                <span style="margin-right: 50px; display: block;" class="sc-kgAjT cuzzPp">
+                  <!-- <img src="https://codefield.nl/wp-content/uploads/2020/09/renzo-150x150.jpg" role="presentation"
+                    style="max-width: 130px; border-radius: 100%;" class="sc-cHGsZl bHiaRe" width="130"> -->
+                  <img src="/assets/renzo.jpg" role="presentation"
+                    style="max-width: 130px; border-radius: 100%;" class="sc-cHGsZl bHiaRe" width="130">
+                    <!-- <img src="https://codefield.nl/wp-content/themes/codefield/assets/images/codefield.png" role="presentation" style="max-width: 130px; display: inline-block;" class="sc-cHGsZl bHiaRe" width="130"></td> -->
+                    <img src="/assets/techfield.png" role="presentation" style="max-width: 130px; display: inline-block; margin-top: 30px;" class="sc-cHGsZl bHiaRe" width="130">
+                </span></td>
+              <td style="vertical-align: middle;">
+                <h3 class="name" color="#120439" style="margin: 0px; font-size: 18px; color: rgb(18, 4, 57);" >Voornaam Achternaam</h3>
+                <p color="#120439" font-size="medium" style="margin: 0px; color: rgb(18, 4, 57); font-size: 18px;" class="sc-fMiknA bxZCMx">
+                  <span class="job" style="line-height:1.4;">Developer</span><br>
+                  <hr style="width:500px; margin: 30px 0; border: none; background-color: #fbfbfb; height: 2px;">
+                  <a href="tel:+31612345678" class="phone" style="line-height:1.4; text-decoration: none; color: rgb(18, 4, 57);">+31 6 12 34 56 78</a><br>
+                  <a href="mailto:info@example.nl" class="email" style="line-height:1.4; text-decoration: none; color: rgb(18, 4, 57);">info@example.nl</a><br>
+                  <span class="address" style="line-height:1.4;">Straat 100, 1234 AB Amsterdam</span><br>
+                  <a href="//website.nl" class="site" style="line-height:1.4; text-decoration: none; color: rgb(18, 4, 57);">website.nl</a><br>
+                </p>
+              </td>
+              <td width="30">
+                <div style="width: 30px;">
+                </div>
+              </td>
+              <td width="30">
+                <div style="width: 30px;">
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <!-- <tr>
+      <td>
+        <table style="font-size: medium; font-family: Arial; width: 100%;" class="sc-gPEVay eQYmiW" cellspacing="0"
+          cellpadding="0">
+          <tbody>
+            <tr>
+              <td height="30">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr> -->
+    <tr>
+      <td>
+        <table style="font-size: medium; font-family: Arial; width: 100%;" class="sc-gPEVay eQYmiW" cellspacing="0"
+          cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="text-align: right; vertical-align: top;">
+                <table style="font-size: medium; font-family: Arial; display: inline-block;" class="sc-gPEVay eQYmiW"
+                  cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr style="text-align: right;">
+                      <td>
+                        <a href="https://facebook.com" color="#120439"
+                          style="display: inline-block; padding: 0px; background-color: rgb(18, 4, 57);"
+                          class="sc-hzDkRC kpsoyz">
+                          <img
+                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/facebook-icon-2x.png"
+                            alt="facebook" color="#120439"
+                            style="background-color: rgb(18, 4, 57); max-width: 135px; display: block;"
+                            class="sc-bRBYWo ccSRck" height="24">
+                        </a></td>
+                      <td width="5">
+                        <div>
+
+                        </div>
+                      </td>
+                      <td>
+                        <a href="https://twitter.com" color="#120439"
+                          style="display: inline-block; padding: 0px; background-color: rgb(18, 4, 57);"
+                          class="sc-hzDkRC kpsoyz">
+                          <img
+                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/twitter-icon-2x.png"
+                            alt="twitter" color="#120439"
+                            style="background-color: rgb(18, 4, 57); max-width: 135px; display: block;"
+                            class="sc-bRBYWo ccSRck" height="24">
+                        </a></td>
+                      <td width="5">
+                        <div>
+
+                        </div>
+                      </td>
+                      <td>
+                        <a href="https://linkedin.nl" color="#120439"
+                          style="display: inline-block; padding: 0px; background-color: rgb(18, 4, 57);"
+                          class="sc-hzDkRC kpsoyz">
+                          <img
+                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/linkedin-icon-2x.png"
+                            alt="linkedin" color="#120439"
+                            style="background-color: rgb(18, 4, 57); max-width: 135px; display: block;"
+                            class="sc-bRBYWo ccSRck" height="24">
+                        </a></td>
+                      <td width="5">
+                        <div>
+
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
