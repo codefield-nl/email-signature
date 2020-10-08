@@ -9,13 +9,18 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style style="display: none;">
-    .no-select {
+
+    
+    .no-select, .no-select * {
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -khtml-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+    }
+
+    .no-select {
       position: fixed;
       left: calc(100% - 390px);
       background-color: #dfdfdf;
@@ -42,6 +47,12 @@
       padding: 12px !important;
     }
 
+    .button {
+      background-color: #606060;
+      color: #ececec;
+      padding: 2px 5px;
+    }
+
     .update {
       width: 60%;
       background: #87a49e;
@@ -49,27 +60,36 @@
     .copy {
       background: #42d93d;
     }
+    * {
+      font-family: Arial;
+    }
 
   </style>
   <script type="text/javascript">
       function copyToClipboard(element) {
-        element.preventDefault;
         var $temp = $("<input>");
         $("body").append($temp);
-        $temp.val($(element).html()).select();
+        $temp.val($(element).text()).select();
         document.execCommand("copy");
         $temp.remove();
         document.getElementsByClassName('copy')[0].textContent = 'Gekopieerd!';
       }
-      function update() {
-        // name
-        // job
-        // phone
-        // email
-        // address
-        // site
+    
+      $(window).on('load', function() {
+        $('.name').select();
 
-      }
+
+        $('.no-select input').on('click', function() {
+          this.setSelectionRange(0, this.value.length);
+        })
+        $('.no-select input').keyup(function(e) {
+          update(e.target.classList[0])
+        });
+        function update(el) {
+          const newVal = $(`.form .${el}`).val();
+          $(`#to-copy .${el}`).text(newVal);
+        }
+      })
   </script>
 </head>
 
@@ -79,11 +99,11 @@
     <input type="text" value="Voornaam Achternaam" class="name" />
     <input type="text" value="Developer" class="job" />
     <input type="text" value="+31 6 12 34 56 78" class="phone" />
-    <input type="text" value="" class="email" />
-    <input type="text" value="" class="address" />
-    <input type="text" value="" class="site" />
-    <button onclick="update()" class="update">Update de velden</button>
-    <button onclick="copyToClipboard('#to-copy')" class="copy">Kopieer handtekening</button>
+    <input type="text" value="info@example.nl" class="email" />
+    <input type="text" value="Straat 100, 1234 AB Amsterdam" class="address" />
+    <input type="text" value="website.nl" class="site" />
+    <p style="color: #444; line-height: 1.6;" >Hoe te Kopieren? Selecteer eerst de hele pagina <span class="button">Ctrl</span> + <span class="button">a</span>, vervolgens kopiëer je die selectie <span class="button">Ctrl</span> + <span class="button">c</span>. Plak deze selectie vervolgens in je mail client. </p>
+    <!-- <button onclick="copyToClipboard('#to-copy')" class="copy">Kopieer handtekening</button> -->
   </div>
 </div>
 
@@ -104,8 +124,8 @@
                     <img src="/assets/techfield.png" role="presentation" style="max-width: 130px; display: inline-block; margin-top: 30px;" class="sc-cHGsZl bHiaRe" width="130">
                 </span></td>
               <td style="vertical-align: middle;">
-                <h3 class="name" color="#120439" style="margin: 0px; font-size: 18px; color: rgb(18, 4, 57);" >Voornaam Achternaam</h3>
                 <p color="#120439" font-size="medium" style="margin: 0px; color: rgb(18, 4, 57); font-size: 18px;" class="sc-fMiknA bxZCMx">
+                  <span class="name" color="#120439" style="margin: 0px; font-weight: bold; color: rgb(18, 4, 57);" >Voornaam Achternaam</span><br>
                   <span class="job" style="line-height:1.4;">Developer</span><br>
                   <hr style="width:500px; margin: 30px 0; border: none; background-color: #fbfbfb; height: 2px;">
                   <a href="tel:+31612345678" class="phone" style="line-height:1.4; text-decoration: none; color: rgb(18, 4, 57);">+31 6 12 34 56 78</a><br>
@@ -153,12 +173,12 @@
                     <tr style="text-align: right;">
                       <td>
                         <a href="https://facebook.com" color="#120439"
-                          style="display: inline-block; padding: 0px; background-color: rgb(18, 4, 57);"
+                          style="display: inline-block; padding: 0px; "
                           class="sc-hzDkRC kpsoyz">
                           <img
-                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/facebook-icon-2x.png"
+                            src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-512.png"
                             alt="facebook" color="#120439"
-                            style="background-color: rgb(18, 4, 57); max-width: 135px; display: block;"
+                            style=" max-width: 135px; display: block;"
                             class="sc-bRBYWo ccSRck" height="24">
                         </a></td>
                       <td width="5">
@@ -168,12 +188,12 @@
                       </td>
                       <td>
                         <a href="https://twitter.com" color="#120439"
-                          style="display: inline-block; padding: 0px; background-color: rgb(18, 4, 57);"
+                          style="display: inline-block; padding: 0px; "
                           class="sc-hzDkRC kpsoyz">
                           <img
-                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/twitter-icon-2x.png"
+                            src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-128.png"
                             alt="twitter" color="#120439"
-                            style="background-color: rgb(18, 4, 57); max-width: 135px; display: block;"
+                            style=" max-width: 135px; display: block;"
                             class="sc-bRBYWo ccSRck" height="24">
                         </a></td>
                       <td width="5">
@@ -183,12 +203,12 @@
                       </td>
                       <td>
                         <a href="https://linkedin.nl" color="#120439"
-                          style="display: inline-block; padding: 0px; background-color: rgb(18, 4, 57);"
+                          style="display: inline-block; padding: 0px; "
                           class="sc-hzDkRC kpsoyz">
                           <img
-                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/linkedin-icon-2x.png"
+                            src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-128.png"
                             alt="linkedin" color="#120439"
-                            style="background-color: rgb(18, 4, 57); max-width: 135px; display: block;"
+                            style=" max-width: 135px; display: block;"
                             class="sc-bRBYWo ccSRck" height="24">
                         </a></td>
                       <td width="5">
