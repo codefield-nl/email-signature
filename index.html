@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Email signature</title>
   <script id="__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST/browser-sync/browser-sync-client.js'><\/script>".replace("HOST", location.hostname + ':3000'));//]]>
   </script>
@@ -47,36 +47,49 @@
       padding: 12px !important;
     }
 
-    .button {
-      background-color: #606060;
-      color: #ececec;
+    button {
+      background-color: #87a49e;
+      /* color: #ececec; */
+      transition: background-color 250ms linear;
+      -webkit-transition: background-color 250ms linear;
       padding: 2px 5px;
     }
 
     .update {
       width: 60%;
-      background: #87a49e;
     }
     .copy {
-      background: #42d93d;
     }
+    .copy.copied {
+      background-color: #42d93d;
+    }
+
     * {
       font-family: Arial;
     }
 
   </style>
+  <script src="./assets/clipboard.min.js"></script>
   <script type="text/javascript">
+
       function copyToClipboard(element) {
-        var $temp = $("<input>");
-        $("body").append($temp);
-        $temp.val($(element).text()).select();
-        document.execCommand("copy");
-        $temp.remove();
-        document.getElementsByClassName('copy')[0].textContent = 'Gekopieerd!';
+        const copyButton = document.getElementsByClassName('copy');
+        copyButton[0].textContent = 'Gekopieerd!';
+        $(copyButton).addClass('copied');
+
+        window.setTimeout(function() {
+          $(copyButton).removeClass('copied');
+          copyButton[0].textContent = 'Kopieër handtekening';
+        }, 800)
       }
     
       $(window).on('load', function() {
         $('.name').select();
+        const clipboard = new ClipboardJS('.copy');
+
+        clipboard.on('success', function(e) {
+            e.clearSelection();
+        });
 
 
         $('.no-select input').on('click', function() {
@@ -154,9 +167,8 @@
     <input type="url" placeholder="Facebook url" class="facebook" />
     <input type="url" placeholder="Twitter url" class="twitter" />
     <input type="url" placeholder="Linkedin url" class="linkedin" />
-
-    <p style="color: #444; line-height: 1.6;" >Hoe te Kopieren? Selecteer eerst de hele pagina <span class="button">Ctrl</span> + <span class="button">a</span>, vervolgens kopiëer je die selectie <span class="button">Ctrl</span> + <span class="button">c</span>. Plak deze selectie vervolgens in je mail client. </p>
-    <!-- <button onclick="copyToClipboard('#to-copy')" class="copy">Kopieer handtekening</button> -->
+    
+    <button onClick="copyToClipboard()" data-clipboard-target="#to-copy" class="copy">Kopieër handtekening</button>
   </div>
 </div>
 
