@@ -26,11 +26,13 @@ $(window).on('load', function() {
 
   $('.no-select select').on('change', function(el) {
     const newVal = el.target.value;
-    $(`#to-copy .brand`).attr('src', `assets/${newVal}.png`)
+    $(`#to-copy .brand`).attr('src', `assets/${newVal}.png`);
+    $('.site').val(`https://${newVal}.nl`);
+    $('.site').text(`${newVal}.nl`);
+    $('.site').attr('href', `https://${newVal}.nl`);
   });
 
   $('.no-select .checkbox').on('change', function(el) {
-      // console.log(el.target.classList[0])
     switch(el.target.classList[0]) {
       case 'fb-checkbox':
         $('#to-copy .facebook')[0].style.display === 'block' ? $('#to-copy .facebook')[0].style.display = 'none' : $('#to-copy .facebook')[0].style.display = 'block';

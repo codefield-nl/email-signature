@@ -2,7 +2,7 @@
   "name": "email-signature",
   "version": "1.0.0",
   "description": "",
-  "main": "src/input.mjml",
+  "main": "src/javascript.js",
   "scripts": {
     "start": "npm run watch",
     "watch": "npx browser-sync start --server 'src' --files 'src'",
